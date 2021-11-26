@@ -11,6 +11,8 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
         rel="stylesheet"
     />
+    <!--My CSS-->
+    <link rel="stylesheet" href="assets/style/style.css"/>
     <title>should i be grinding?</title>
   </head>
   <body>
@@ -21,10 +23,20 @@
            and various statistics about how many people are grinding in europe or asia right now, depending on the real time the user has. if you lied about the time the site 
            calls you out on the lie. it offers inspiration on how to grind as well, such as opening a myspace account
       -->
-    <img id="ecImg" style="display: none" src="assets/style/pictures/east coast.jpg">
-    <img id="wcImg" style="display: none" src="assets/style/pictures/1200px-Central_Californian_Coastline,_Big_Sur_-_May_2013.jpg">
-    <img id="midImg" style="display: none" src="assets/style/pictures/midwest.jpg">
-    <img id="mwImg" style="display: none" src="assets/style/pictures/mountain west.jpg">
+    <img id="ecImg" class="locImage" 
+    style="display: none;" 
+    src="assets/style/pictures/east coast.jpg">
+    
+    <img id="wcImg" class="locImage" 
+    style="display: none;" 
+    src="assets/style/pictures/1200px-Central_Californian_Coastline,_Big_Sur_-_May_2013.jpg">
+
+    <img id="midImg" class="locImage" 
+    style="display: none;" src="assets/style/pictures/midwest.jpg">
+
+    <img id="mwImg" class="locImage" 
+    style="display: none;"
+    src="assets/style/pictures/mountain west.jpg">
       <div class="container">
           <div class="row vh-100 align-items-center justify-content-center" >
               <div class="col"><!-- space taker --></div>
@@ -63,26 +75,48 @@
         crossorigin="anonymous">
     </script>
     <!--jQuery-->
-    <script
-        src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
-        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI="
-        crossorigin="anonymous"></script>
+    <script 
+        src="https://code.jquery.com/jquery-3.6.0.min.js" 
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+        crossorigin="anonymous">
+    </script>
     <!--My Script-->
     <script >
-        var intro = document.querySelector("#introElement")
-        var goBtn = document.querySelector("#goButton");
-
         function goBtnFadeIn() {
-            $("#goButton").fadeIn(200)
+            $("#goButton").fadeIn(400)
         }
+
         function eastCoastFadeIn() {
-            $("#ecImg").fadeIn(200);
+            $(".locImg").hide()
+            $("#ecImg").fadeIn(700);
+            $("#dropdownMenuButton1").text("East Coast");
+            goBtnFadeIn();
+        }
+
+        function westCoastFadeIn() {
+            $(".locImg").hide()
+            $("#wcImg").fadeIn(700);
+            $("#dropdownMenuButton1").text("West Coast");
+            goBtnFadeIn();
+        }
+
+        function midwestFadeIn() {
+            $(".locImg").hide()
+            $("#midImg").fadeIn(700);
+            $("#dropdownMenuButton1").text("Midwest");
+            goBtnFadeIn();
+        }
+
+        function mountainWestFadeIn() {
+            $(".locImg").hide()
+            $("#mwImg").fadeIn(700);
+            $("#dropdownMenuButton1").text("Mountain West");
             goBtnFadeIn();
         }
 
 
         function playMusic() {
-           $("#music").play();
+           document.querySelector("#music").play();
         }
 
         function startGrinding() {
@@ -96,6 +130,16 @@
 
         $("#ec").click(function() {
             eastCoastFadeIn();
+        })
+        $("#wc").click(function() {
+            console.log("firing")
+            westCoastFadeIn();
+        })
+        $("#mw").click(function() {
+            mountainWestFadeIn();
+        })
+        $("#mid").click(function() {
+            midwestFadeIn();
         })
 
 
