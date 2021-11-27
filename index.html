@@ -40,28 +40,14 @@
     <h1 id="YES">YES</h1>
       <div id="introElement" class="container">
           <div class="row vh-100 align-items-center justify-content-center" >
-              <div class="col"><!-- space taker --></div>
-              <div class="col">
-                    <h1>Where are you?</h1> 
+              <div class="col-3"><!-- space taker --></div>
+              <div class="col-6">
                     <br>
-                    <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" style="width: 50%; margin-left: 8%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        </button>
-                        <ul class="dropdown-menu" style="width: 50%; margin-left: 0%" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item pl-5" id="ec">East Coast</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item pl-5" id="mid">Midwest</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item pl-5" id="mw">Mountain West</a></li>
-                          <li><hr class="dropdown-divider"></li>
-                          <li><a class="dropdown-item pl-5" id="wc">West Coast</a></li>
-                        </ul>
-                      </div> 
+                    <h1 id="timeBox"></h1>
                     <br>
-                    <h3 id="timeBox"></h3>
-                    <button type="button" class="btn btn-light shadow-sm" id="goButton" style="display: none; margin-left: 10%" >Should I be grinding?</button>
+                    <button type="button" class="btn btn-outline-dark shadow-sm btn-lg" id="goButton" style="margin-left: 20%" >Should I be grinding?</button>
               </div> 
-              <div class="col"><!-- space taker --></div>  
+              <div class="col-3"><!-- space taker --></div>  
           </div>
 
         </div>
@@ -82,82 +68,7 @@
         crossorigin="anonymous">
     </script>
     <!--My Script-->
-    <script>
-        function setDate() {
-            var time =new Date;
-            time.toLocaleString("en-US");
-            $("#timeBox").text("It is currently " + time);
-        }
-
-        
-        function goBtnFadeIn() {
-            setDate();
-            $("#goButton").fadeIn(400)
-        }
-
-        function eastCoastFadeIn() {
-            $(".locImg").hide()
-            $("#ecImg").fadeIn(700);
-            $("#dropdownMenuButton1").text("East Coast");
-            goBtnFadeIn();
-        }
-
-        function westCoastFadeIn() {
-            $(".locImg").hide()
-            $("#wcImg").fadeIn(700);
-            $("#dropdownMenuButton1").text("West Coast");
-            goBtnFadeIn();
-        }
-
-        function midwestFadeIn() {
-            $(".locImg").hide()
-            $("#midImg").fadeIn(700);
-            $("#dropdownMenuButton1").text("Midwest");
-            goBtnFadeIn();
-        }
-
-        function mountainWestFadeIn() {
-            $(".locImg").hide()
-            $("#mwImg").fadeIn(700);
-            $("#dropdownMenuButton1").text("Mountain West");
-            goBtnFadeIn();
-        }
-
-
-        $("#ec").click(function() {
-            eastCoastFadeIn();
-        })
-        $("#wc").click(function() {
-            console.log("firing")
-            westCoastFadeIn();
-        })
-        $("#mw").click(function() {
-            mountainWestFadeIn();
-        })
-        $("#mid").click(function() {
-            midwestFadeIn();
-        })
-
-        function playMusic() {
-           document.querySelector("#music").play();
-        }
-        function yesFade() {
-            $("#YES").fadeIn(20000)
-        }
-        function startGrinding() {
-            $(".locImage").hide()
-            $("#introElement").hide()
-            document.body.style.backgroundColor = "black";
-            playMusic();
-            setTimeout(yesFade, 4500);
-            
-        }
-
-     //   getDate(), getYear(), getMonth(), getMinute()
-        
-        $("#goButton").click( function() {
-        startGrinding();
-        })
+    <script src="assets/javascript/code.js">     
     </script>
 
     </body>

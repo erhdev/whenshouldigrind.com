@@ -10,3 +10,6 @@ img {
     color: white;
     display: none;
 }
+#introElement {
+    display: none;
+}
