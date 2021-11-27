@@ -37,17 +37,17 @@
     <img id="mwImg" class="locImage" 
     style="display: none;"
     src="assets/style/pictures/mountain west.jpg">
-      <div class="container">
+    <h1 id="YES">YES</h1>
+      <div id="introElement" class="container">
           <div class="row vh-100 align-items-center justify-content-center" >
               <div class="col"><!-- space taker --></div>
               <div class="col">
-                <div id="introElement">
-                    <h3>Where are you?</h3> 
+                    <h1>Where are you?</h1> 
                     <br>
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" style="width: 50%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary dropdown-toggle" style="width: 50%; margin-left: 8%" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                         </button>
-                        <ul class="dropdown-menu" style="width: 50%" aria-labelledby="dropdownMenuButton1">
+                        <ul class="dropdown-menu" style="width: 50%; margin-left: 0%" aria-labelledby="dropdownMenuButton1">
                           <li><a class="dropdown-item pl-5" id="ec">East Coast</a></li>
                           <li><hr class="dropdown-divider"></li>
                           <li><a class="dropdown-item pl-5" id="mid">Midwest</a></li>
@@ -58,13 +58,14 @@
                         </ul>
                       </div> 
                     <br>
-                    <button type="button" class="btn btn-light shadow-sm" id="goButton" style="display: none" >Should I be grinding?</button>
-              </div>   
+                    <h3 id="timeBox"></h3>
+                    <button type="button" class="btn btn-light shadow-sm" id="goButton" style="display: none; margin-left: 10%" >Should I be grinding?</button>
+              </div> 
+              <div class="col"><!-- space taker --></div>  
           </div>
-          <div class="col"><!-- space taker --></div>
+
         </div>
-      </div>
-       
+    
     <audio id="music" preload="none">
         <source src="assets/style/Killer Mike - The Pledge Intro.mp3">
     </audio>
@@ -81,8 +82,16 @@
         crossorigin="anonymous">
     </script>
     <!--My Script-->
-    <script >
+    <script>
+        function setDate() {
+            var time =new Date;
+            time.toLocaleString("en-US");
+            $("#timeBox").text("It is currently " + time);
+        }
+
+        
         function goBtnFadeIn() {
+            setDate();
             $("#goButton").fadeIn(400)
         }
 
@@ -115,19 +124,6 @@
         }
 
 
-        function playMusic() {
-           document.querySelector("#music").play();
-        }
-
-        function startGrinding() {
- 
-            $("#introElement").hide()
-            document.body.style.backgroundColor = "black";
-            playMusic();
-            console.log("test")
-
-        }
-
         $("#ec").click(function() {
             eastCoastFadeIn();
         })
@@ -142,7 +138,23 @@
             midwestFadeIn();
         })
 
+        function playMusic() {
+           document.querySelector("#music").play();
+        }
+        function yesFade() {
+            $("#YES").fadeIn(20000)
+        }
+        function startGrinding() {
+            $(".locImage").hide()
+            $("#introElement").hide()
+            document.body.style.backgroundColor = "black";
+            playMusic();
+            setTimeout(yesFade, 4500);
+            
+        }
 
+     //   getDate(), getYear(), getMonth(), getMinute()
+        
         $("#goButton").click( function() {
         startGrinding();
         })
